@@ -1,4 +1,4 @@
-﻿var gallery;
+﻿var galleryvm;
 
 function galleryViewModel(url) {
     var self = this;
@@ -30,9 +30,9 @@ function galleryViewModel(url) {
 // detects when reaching bottom of page
 $(window).scroll(function () {
     if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-        if (gallery) {
+        if (galleryvm) {
             // get next page set
-            gallery.GetNextPage();
+            galleryvm.GetNextPage();
         };
     }
 });

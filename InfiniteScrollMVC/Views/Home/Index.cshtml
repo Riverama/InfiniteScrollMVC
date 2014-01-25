@@ -20,8 +20,8 @@
             var url = "@Url.Action("GetGallery")";
 
             //initilize gallery
-            gallery = new galleryViewModel(url);
-            ko.applyBindings(gallery, $("#gallery")[0]);
+            galleryvm = new galleryViewModel(url);
+            ko.applyBindings(galleryvm, $("#gallery")[0]);
         });
     </script>
 }

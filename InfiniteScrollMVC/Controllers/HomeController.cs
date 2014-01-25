@@ -25,8 +25,11 @@ namespace InfiniteScrollMVC.Controllers
             var dir = new DirectoryInfo(Server.MapPath("~/Images/gallery"));
             if (dir.Exists)
             {
-                var images = (from i in dir.GetFiles()
-                              select new {
+                var filters = new String[] { ".jpg", ".jpeg", ".png", ".gif", ".tiff", ".bmp" };
+                var images = (from i in dir.EnumerateFiles()
+                              where filters.Contains(i.Extension.ToLower())
+                              select new
+                              {
                                   Name = i.Name,
                                   Path = "../Images/gallery/" + i.Name
                               }).Skip(page * rows).Take(rows);
@@ -35,6 +38,6 @@ namespace InfiniteScrollMVC.Controllers
             }
 
             return null;
-        }
+        } 
     }
 }
